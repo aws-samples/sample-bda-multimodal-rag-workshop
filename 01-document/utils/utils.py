@@ -17,7 +17,6 @@ class BDADocumentUtils:
     def __init__(self):
         # Initialize AWS session and clients
         self.session = boto3.Session()
-        self.default_bucket = f"sagemaker-{self.session.region_name}-{boto3.client('sts').get_caller_identity()['Account']}"
         self.current_region = self.session.region_name
         
         self.sts = boto3.client('sts')
@@ -28,9 +27,15 @@ class BDADocumentUtils:
         self.bda_runtime_client = boto3.client('bedrock-data-automation-runtime')
         self.s3_client = boto3.client('s3')
         
+        # Define bucket name using workshop convention
+        self.bucket_name = f"bda-workshop-{self.current_region}-{self.account_id}"
+        
         # Define S3 locations
-        self.input_location = f's3://{self.default_bucket}/bda/input'
-        self.output_location = f's3://{self.default_bucket}/bda/output'
+        self.input_location = f's3://{self.bucket_name}/bda/input'
+        self.output_location = f's3://{self.bucket_name}/bda/output'
+        
+        # Create bucket if it doesn't exist
+        self.create_bucket_if_not_exists()
     
     def get_bucket_and_key(self, s3_uri):
         """Extract bucket and key from an S3 URI"""
@@ -55,6 +60,22 @@ class BDADocumentUtils:
     def download_document(self, url, output_path):
         """Download a document from a URL with enhanced error handling"""
         return download_file(url, output_path)
+    
+    def create_bucket_if_not_exists(self):
+        """Create S3 bucket if it doesn't exist"""
+        try:
+            self.s3_client.head_bucket(Bucket=self.bucket_name)
+            print(f"Bucket {self.bucket_name} already exists")
+        except:
+            print(f"Creating bucket: {self.bucket_name}")
+            if self.current_region == 'us-east-1':
+                self.s3_client.create_bucket(Bucket=self.bucket_name)
+            else:
+                self.s3_client.create_bucket(
+                    Bucket=self.bucket_name,
+                    CreateBucketConfiguration={'LocationConstraint': self.current_region}
+                )
+            print(f"Bucket {self.bucket_name} created successfully")
     
     def upload_to_s3(self, local_path, s3_uri):
         """Upload a local file to S3"""
