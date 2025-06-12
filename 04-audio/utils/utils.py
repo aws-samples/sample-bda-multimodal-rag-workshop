@@ -18,7 +18,6 @@ class BDAAudioUtils:
     def __init__(self):
         # Initialize AWS session and clients
         self.session = sagemaker.Session()
-        self.default_bucket = self.session.default_bucket()
         self.current_region = boto3.session.Session().region_name
         
         self.sts = boto3.client('sts')
@@ -29,9 +28,15 @@ class BDAAudioUtils:
         self.bda_runtime_client = boto3.client('bedrock-data-automation-runtime')
         self.s3_client = boto3.client('s3')
         
+        # Define bucket name using workshop convention
+        self.bucket_name = f"bda-workshop-{self.current_region}-{self.account_id}"
+        
         # Define S3 locations
         self.data_prefix = "bda-workshop/audio"
         self.output_prefix = "bda-workshop/audio/output"
+        
+        # Create bucket if it doesn't exist
+        self.create_bucket_if_not_exists()
     
     def download_audio(self, url, output_path):
         """Download an audio file from a URL with enhanced error handling."""
@@ -60,10 +65,26 @@ class BDAAudioUtils:
             print(f"Error downloading audio: {e}")
             raise
     
+    def create_bucket_if_not_exists(self):
+        """Create S3 bucket if it doesn't exist"""
+        try:
+            self.s3_client.head_bucket(Bucket=self.bucket_name)
+            print(f"Bucket {self.bucket_name} already exists")
+        except:
+            print(f"Creating bucket: {self.bucket_name}")
+            if self.current_region == 'us-east-1':
+                self.s3_client.create_bucket(Bucket=self.bucket_name)
+            else:
+                self.s3_client.create_bucket(
+                    Bucket=self.bucket_name,
+                    CreateBucketConfiguration={'LocationConstraint': self.current_region}
+                )
+            print(f"Bucket {self.bucket_name} created successfully")
+    
     def upload_to_s3(self, local_path, s3_key):
         """Upload a local file to S3"""
-        self.s3_client.upload_file(local_path, self.default_bucket, s3_key)
-        return f's3://{self.default_bucket}/{s3_key}'
+        self.s3_client.upload_file(local_path, self.bucket_name, s3_key)
+        return f's3://{self.bucket_name}/{s3_key}'
     
     def read_json_from_s3(self, s3_uri):
         """Read and parse a JSON file from S3"""
@@ -81,10 +102,10 @@ class BDAAudioUtils:
     
     def delete_s3_folder(self, prefix):
         """Delete a folder and its contents from S3"""
-        objects = self.s3_client.list_objects_v2(Bucket=self.default_bucket, Prefix=prefix)
+        objects = self.s3_client.list_objects_v2(Bucket=self.bucket_name, Prefix=prefix)
         if 'Contents' in objects:
             for obj in objects['Contents']:
-                self.s3_client.delete_object(Bucket=self.default_bucket, Key=obj['Key'])
+                self.s3_client.delete_object(Bucket=self.bucket_name, Key=obj['Key'])
     
     def wait_for_completion(self, get_status_function, status_kwargs, completion_states, 
                            error_states, status_path_in_response, max_iterations=15, delay=10):
