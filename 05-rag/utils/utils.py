@@ -1494,6 +1494,126 @@ class BDARAGUtils:
                 </div>
             </div>
             """
+            
+        elif context_type == "knowledge_base":
+            html = """
+            <div style="background-color:#f8f8f8; padding:20px; border-radius:10px; margin:20px 0; font-family:Arial, sans-serif;">
+                <h2 style="color:#0972d1;">Amazon Bedrock Knowledge Base</h2>
+                
+                <p>Amazon Bedrock Knowledge Bases provide a fully managed solution for creating, managing, and querying vector databases to enable retrieval-augmented generation (RAG). Knowledge Bases serve as the intelligent memory for foundation models, allowing them to use your data to generate accurate and contextually relevant responses.</p>
+                
+                <div style="margin:20px 0;">
+                    <h3 style="color:#0972d1;">Key Capabilities</h3>
+                    <ul>
+                        <li><strong>Multimodal Support:</strong> Process and query across documents, images, audio, and video content</li>
+                        <li><strong>Vector Embedding:</strong> Automatically convert content into vector embeddings using foundation models</li>
+                        <li><strong>Intelligent Chunking:</strong> Apply different chunking strategies (fixed-size, hierarchical, semantic) based on content</li>
+                        <li><strong>Secure Access:</strong> Fine-grained access controls and encryption for sensitive information</li>
+                    </ul>
+                </div>
+                
+                <div style="margin:20px 0;">
+                    <h3 style="color:#0972d1;">Architecture Components</h3>
+                    <ul>
+                        <li><strong>OpenSearch Serverless:</strong> Fully managed vector database for efficient similarity search</li>
+                        <li><strong>S3 Storage:</strong> Secure object storage for maintaining original files and supplemental content</li>
+                        <li><strong>IAM Roles:</strong> Secure execution roles with fine-grained permissions for Knowledge Base operations</li>
+                        <li><strong>Foundation Models:</strong> Access to embedding, generation, and reranking models via Amazon Bedrock</li>
+                    </ul>
+                </div>
+            </div>
+            """
+            
+        elif context_type == "data_ingestion":
+            html = """
+            <div style="background-color:#f8f8f8; padding:20px; border-radius:10px; margin:20px 0; font-family:Arial, sans-serif;">
+                <h2 style="color:#0972d1;">Knowledge Base Ingestion Process</h2>
+                
+                <p>Data ingestion is a critical process that transforms raw content into queryable knowledge by converting it into vector embeddings that foundation models can use. Amazon Bedrock Knowledge Bases handle this process with a streamlined workflow.</p>
+                
+                <div style="margin:20px 0;">
+                    <h3 style="color:#0972d1;">Ingestion Pipeline</h3>
+                    <ol>
+                        <li><strong>Document Loading:</strong> Raw documents are loaded from the configured data source (S3, SharePoint, etc.)</li>
+                        <li><strong>Content Extraction:</strong> Text and metadata are extracted from various file formats</li>
+                        <li><strong>Chunking:</strong> Content is divided into semantic units based on your configured chunking strategy</li>
+                        <li><strong>Embedding Generation:</strong> Each chunk is transformed into a vector representation using foundation models</li>
+                        <li><strong>Vector Indexing:</strong> Vectors are stored in the vector index with metadata for efficient retrieval</li>
+                    </ol>
+                </div>
+                
+                <div style="margin:20px 0;">
+                    <h3 style="color:#0972d1;">Chunking Strategies</h3>
+                    <ul>
+                        <li><strong>Fixed-Size:</strong> Divides content into chunks of consistent token lengths with configurable overlap</li>
+                        <li><strong>Hierarchical:</strong> Creates multi-level chunks to maintain both context and granularity</li>
+                        <li><strong>Semantic:</strong> Chunks content based on semantic meaning rather than arbitrary token counts</li>
+                        <li><strong>Custom:</strong> Apply custom chunking logic through Lambda functions for specialized needs</li>
+                    </ul>
+                </div>
+            </div>
+            """
+            
+        elif context_type == "vector_store":
+            html = """
+            <div style="background-color:#f8f8f8; padding:20px; border-radius:10px; margin:20px 0; font-family:Arial, sans-serif;">
+                <h2 style="color:#0972d1;">Vector Search in Amazon Bedrock Knowledge Bases</h2>
+                
+                <p>Amazon Bedrock Knowledge Bases use Amazon OpenSearch Serverless as the underlying vector store technology. This fully managed service provides efficient similarity search capabilities for RAG applications.</p>
+                
+                <div style="margin:20px 0;">
+                    <h3 style="color:#0972d1;">Amazon OpenSearch Serverless Features</h3>
+                    <ul>
+                        <li><strong>Fully Managed:</strong> No need to provision or manage infrastructure</li>
+                        <li><strong>Auto-scaling:</strong> Automatically scales based on your indexing and query workloads</li>
+                        <li><strong>k-NN:</strong> Built-in nearest neighbor search algorithms for vector similarity</li>
+                        <li><strong>Hybrid Search:</strong> Combine semantic (vector) and keyword (text) search capabilities</li>
+                    </ul>
+                </div>
+                
+                <div style="margin:20px 0;">
+                    <h3 style="color:#0972d1;">Vector Index Configuration</h3>
+                    <ul>
+                        <li><strong>HNSW Algorithm:</strong> Uses Hierarchical Navigable Small World algorithm for efficient search</li>
+                        <li><strong>Dimension Matching:</strong> Index dimensions match the embedding model output dimensions</li>
+                        <li><strong>Text Fields:</strong> Maintain searchable text fields alongside vector representations</li>
+                        <li><strong>Metadata Storage:</strong> Store source information and other metadata for attribution</li>
+                    </ul>
+                </div>
+            </div>
+            """
+            
+        elif context_type == "semantic_search":
+            html = """
+            <div style="background-color:#f8f8f8; padding:20px; border-radius:10px; margin:20px 0; font-family:Arial, sans-serif;">
+                <h2 style="color:#0972d1;">Semantic Search Process</h2>
+                
+                <p>Semantic search goes beyond keyword matching to find content based on meaning and context. In RAG applications, it enables finding relevant information even when the exact terminology differs.</p>
+                
+                <div style="margin:20px 0;">
+                    <h3 style="color:#0972d1;">The RAG Query Process</h3>
+                    <ol>
+                        <li><strong>Query Embedding:</strong> The user's natural language query is transformed into a vector embedding</li>
+                        <li><strong>Vector Search:</strong> The query vector is compared to document vectors using similarity metrics</li>
+                        <li><strong>Retrieval:</strong> The most semantically similar document chunks are retrieved from the vector store</li>
+                        <li><strong>Context Assembly:</strong> Retrieved content is assembled as context for the foundation model</li>
+                        <li><strong>Response Generation:</strong> The foundation model generates a response based on the retrieved context</li>
+                        <li><strong>Citation Generation:</strong> Citations are added to attribute information sources</li>
+                    </ol>
+                </div>
+                
+                <div style="margin:20px 0;">
+                    <h3 style="color:#0972d1;">Cross-Modal Retrieval</h3>
+                    <p>In multimodal RAG, the system makes connections between different types of media:</p>
+                    <ul>
+                        <li><strong>Text-to-Image:</strong> Finding relevant images based on textual descriptions</li>
+                        <li><strong>Audio-to-Text:</strong> Matching spoken content with written documentation</li>
+                        <li><strong>Image-to-Video:</strong> Finding video segments containing similar visual elements</li>
+                        <li><strong>Query-to-All:</strong> Finding relevant content across all modalities from a single query</li>
+                    </ul>
+                </div>
+            </div>
+            """
         else:
             html = f"<div>Context type '{context_type}' not recognized</div>"
             
