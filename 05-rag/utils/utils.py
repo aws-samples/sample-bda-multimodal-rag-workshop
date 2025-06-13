@@ -324,7 +324,8 @@ class BDARAGUtils:
                            if d.get('type') in ('CONFLUENCE', 'SHAREPOINT', 'SALESFORCE')] if self.data_sources else []
         self.chunking_strategy = chunking_strategy
         self.multi_modal = multi_modal
-        self.parser = parser
+        # Default to BEDROCK_DATA_AUTOMATION for better compatibility
+        self.parser = parser or 'BEDROCK_DATA_AUTOMATION'
         
         # Handle intermediate storage for multimodal or custom chunking
         if multi_modal or chunking_strategy == "CUSTOM":
@@ -581,14 +582,14 @@ class BDARAGUtils:
         response = self.aoss_client.batch_get_collection(names=[self.vector_store_name])
         while (response['collectionDetails'][0]['status']) == 'CREATING':
             print('Creating collection...')
-            interactive_sleep(30)
+            interactive_sleep(30)  # Restored to original wait time of 30 seconds
             response = self.aoss_client.batch_get_collection(names=[self.vector_store_name])
         print('\nCollection successfully created.')
 
         try:
             self.create_oss_policy_attach_bedrock_execution_role(collection_id)
             print("Sleeping for a minute to ensure data access rules have been enforced")
-            interactive_sleep(60)
+            interactive_sleep(60)  # Restored to original wait time of 60 seconds
         except Exception as e:
             print("Policy already exists")
             print(f"Error: {e}")
@@ -684,7 +685,8 @@ class BDARAGUtils:
                 print('Creating vector index:')
                 print(f"Response: {response}")
                 print('Waiting for index creation to complete...')
-                interactive_sleep(60)
+                print('This may take about 60 seconds...')
+                interactive_sleep(60)  # Increased to 60 seconds to ensure index is fully ready
                 print('✓ Vector index created successfully')
             except ImportError:
                 print("OpenSearch Python library not installed. Using simulated index creation.")
@@ -727,7 +729,8 @@ class BDARAGUtils:
                     "Resource": [
                         f"arn:aws:bedrock:{self.region_name}::foundation-model/{self.embedding_model}",
                         f"arn:aws:bedrock:{self.region_name}::foundation-model/{self.generation_model}",
-                        f"arn:aws:bedrock:{self.region_name}::foundation-model/{self.reranking_model}"
+                        f"arn:aws:bedrock:{self.region_name}::foundation-model/{self.reranking_model}",
+                        f"arn:aws:bedrock:{self.region_name}::foundation-model/anthropic.claude-3-5-haiku-20241022-v1:0"
                     ]
                 }
             ]
@@ -1001,11 +1004,11 @@ class BDARAGUtils:
                         "parsingStrategy": "BEDROCK_DATA_AUTOMATION"
                     }
                 else:
-                    # Default parsing configuration
+                    # Default parsing configuration - using Claude 3.5 Haiku instead of Sonnet
                     parsing_configuration = {
                         "bedrockFoundationModelConfiguration": {
                             "parsingModality": "MULTIMODAL", 
-                            "modelArn": f"arn:aws:bedrock:{self.region_name}::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0"
+                            "modelArn": f"arn:aws:bedrock:{self.region_name}::foundation-model/anthropic.claude-3-5-haiku-20241022-v1:0"
                         }, 
                         "parsingStrategy": "BEDROCK_FOUNDATION_MODEL"
                     }
@@ -1098,11 +1101,29 @@ class BDARAGUtils:
         ingestion_jobs = []
         
         try:
-            # Wait for KB to be fully available before starting ingestion
+            # Wait for Knowledge Base to be fully available before starting ingestion
             print("Waiting for Knowledge Base to be fully available...")
-            time.sleep(30)
+            time.sleep(30)  # Increased from 5 seconds to 30 seconds
+            
+            # Check if data_source attribute exists and is a list
+            if not hasattr(self, 'data_source') or not self.data_source:
+                # Get data sources from the Knowledge Base
+                try:
+                    data_sources_response = self.bedrock_agent_client.list_data_sources(
+                        knowledgeBaseId=self.knowledge_base['knowledgeBaseId'],
+                        maxResults=100
+                    )
+                    self.data_source = data_sources_response.get('dataSourceSummaries', [])
+                    print(f"Found {len(self.data_source)} data sources in the Knowledge Base")
+                except Exception as e:
+                    print(f"Error listing data sources: {e}")
+                    self.data_source = []
             
             # Start ingestion for all data sources
+            if not self.data_source:
+                print("No data sources found to ingest")
+                return []
+                
             for idx, data_source in enumerate(self.data_source):
                 print(f"Starting ingestion job for data source {idx+1}/{len(self.data_source)}...")
                 
@@ -1121,7 +1142,7 @@ class BDARAGUtils:
                     print(f"Monitoring ingestion job status...")
                     while job['status'] not in ["COMPLETE", "FAILED", "STOPPED"]:
                         # Wait before checking status again
-                        time.sleep(30)
+                        time.sleep(5)
                         
                         # Get updated job status
                         get_job_response = self.bedrock_agent_client.get_ingestion_job(
@@ -1151,10 +1172,8 @@ class BDARAGUtils:
                 except Exception as e:
                     print(f"❌ Error starting ingestion job for data source {idx+1}: {e}")
             
-            # Wait a bit after ingestion to ensure data is fully available
+            # All ingestion jobs completed
             if ingestion_jobs:
-                print("Waiting for data to be fully available for querying...")
-                time.sleep(60)
                 print("✅ All ingestion jobs completed!")
             else:
                 print("⚠️ No ingestion jobs were started.")
@@ -1316,7 +1335,7 @@ class BDARAGUtils:
         html += "</div>"
         return HTML(html)
     
-    def query_knowledge_base(self, query, model_id="amazon.nova-micro-v1:0", num_results=5):
+    def query_knowledge_base(self, query, model_id="anthropic.claude-3-5-haiku-20241022-v1:0", num_results=5):
         """
         Query the Knowledge Base using real AWS API calls
         
@@ -1347,7 +1366,7 @@ class BDARAGUtils:
                     "type": "KNOWLEDGE_BASE",
                     "knowledgeBaseConfiguration": {
                         'knowledgeBaseId': kb_id,
-                        "modelArn": f"arn:aws:bedrock:{self.region_name}::foundation-model/{model_id}",
+                        "modelArn": f"arn:aws:bedrock:{self.region_name}:{self.account_number}:inference-profile/us.{model_id}",
                         "retrievalConfiguration": {
                             "vectorSearchConfiguration": {
                                 "numberOfResults": num_results
