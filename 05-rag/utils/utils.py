@@ -3,7 +3,7 @@ import json
 import time
 import os
 import random
-from IPython.display import HTML
+from IPython.display import HTML, display
 from botocore.exceptions import ClientError
 
 # For backward compatibility
@@ -1636,7 +1636,7 @@ class BDARAGUtils:
         else:
             html = f"<div>Context type '{context_type}' not recognized</div>"
             
-        return HTML(html)
+        display(HTML(html))
         
     def delete_kb(self, delete_s3_bucket=False, delete_iam_roles_and_policies=True, delete_lambda_function=False):
         """
