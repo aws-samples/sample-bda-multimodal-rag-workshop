@@ -160,7 +160,8 @@ from unstructured documents by leveraging generative AI to automate transformati
             "sources": [
                 {"text": "Amazon Bedrock Data Automation Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html"},
                 {"text": "Amazon Bedrock Data Automation Product Page", "url": "https://aws.amazon.com/bedrock/bda/"},
-                {"text": "AWS Blog: Simplify multimodal generative AI with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/simplify-multimodal-generative-ai-with-amazon-bedrock-data-automation/"}
+                {"text": "AWS Blog: Simplify multimodal generative AI with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/simplify-multimodal-generative-ai-with-amazon-bedrock-data-automation/"},
+                {"text": "AWS Blog: Unleashing the multimodal power of Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/unleashing-the-multimodal-power-of-amazon-bedrock-data-automation-to-transform-unstructured-data-into-actionable-insights/"}
             ]
         },
         "standard_output": {
@@ -189,7 +190,8 @@ The configuration you choose significantly impacts the quality and usefulness of
 """,
             "sources": [
                 {"text": "Standard Output in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-standard-output.html"},
-                {"text": "AWS Blog: Scalable intelligent document processing using Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/scalable-intelligent-document-processing-using-amazon-bedrock/"}
+                {"text": "AWS Blog: Scalable intelligent document processing using Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/scalable-intelligent-document-processing-using-amazon-bedrock/"},
+                {"text": "AWS Blog: Building a multimodal RAG application with Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/building-a-multimodal-rag-based-application-using-amazon-bedrock-data-automation-and-amazon-bedrock-knowledge-bases/"}
             ]
         },
         "processing_pipeline": {
@@ -205,6 +207,13 @@ When you invoke Amazon Bedrock Data Automation, the service executes a sophistic
 4. **Semantic Enrichment**: Generative AI creates summaries and descriptions of document content
 5. **Result Formation**: All extracted data is assembled into the requested output formats
 
+### Processing Configuration
+
+- **Input Configuration**: Specify the S3 location of your document
+- **Output Configuration**: Define where processed results should be stored
+- **Data Automation Configuration**: Reference your project ARN and stage
+- **Data Automation Profile**: Specify the processing profile to use
+
 ### Performance Considerations
 
 - Processing time depends on document complexity, size, and requested granularity
@@ -212,7 +221,8 @@ When you invoke Amazon Bedrock Data Automation, the service executes a sophistic
 - Typical processing times range from seconds to a few minutes for complex documents
 """,
             "sources": [
-                {"text": "Invoking Amazon Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-invoke.html"}            
+                {"text": "Invoking Amazon Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-invoke.html"},
+                {"text": "BDA Runtime API Reference", "url": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Runtime_for_Amazon_Bedrock_Data_Automation.html"}
                 ]
         },
         "project_architecture": {
@@ -230,11 +240,23 @@ Projects are a fundamental architectural component in Amazon Bedrock Data Automa
 
 5. **Cost Management**: By organizing processing jobs under projects, you can track and allocate costs to specific business initiatives or departments.
 
+### Project Stages
+
+Each project can have two stages:
+- **LIVE**: Used for production processing of customer requests
+- **DEVELOPMENT**: Used for testing and modification before promoting to LIVE
+
+### Project Limits
+
+- Up to 40 document blueprints can be attached to a single project
+- Each project can have one standard output configuration per data type
+- Project names must be unique within your account and region
+
 In production environments, you would typically create different projects for different document types or processing requirements, each with its own optimized configuration.
 """,
             "sources": [
                 {"text": "Working with Projects in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-projects.html"},
-                {"text": "AWS Blog: Enterprise Document Processing with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/enterprise-document-processing-with-amazon-bedrock-data-automation/"}
+                {"text": "AWS Blog: Get insights from multimodal content with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/aws/get-insights-from-multimodal-content-with-amazon-bedrock-data-automation-now-generally-available/"}
             ]
         },
         "business_applications": {
@@ -250,6 +272,13 @@ The structured data extracted by BDA enables various business applications that 
 - **Compliance Verification**: Check document content against regulatory requirements
 - **Enterprise Search**: Make document content searchable across the organization
 
+### Industry-Specific Use Cases
+
+- **Financial Services**: Automated processing of loan applications, SEC filings, and investment prospectuses
+- **Healthcare**: Information extraction from medical records, insurance claims, and clinical trial documentation
+- **Legal**: Analysis of contracts, case law, and regulatory documentation
+- **Manufacturing**: Processing of quality control reports, supply chain documentation, and safety compliance
+
 ### Integration Patterns
 
 - **API Integration**: Connect with CRM, ERP, and other business systems
@@ -258,8 +287,9 @@ The structured data extracted by BDA enables various business applications that 
 - **Knowledge Bases**: Build searchable repositories of document information
 """,
             "sources": [
-                {"text": "AWS Blog: Automate document processing with Amazon Bedrock Prompt Flows", "url": "https://aws.amazon.com/blogs/machine-learning/automate-document-processing-with-amazon-bedrock-prompt-flows-preview/"},
-                {"text": "AWS Blog: New Amazon Bedrock capabilities enhance data processing and retrieval", "url": "https://aws.amazon.com/blogs/aws/new-amazon-bedrock-capabilities-enhance-data-processing-and-retrieval/"}
+                {"text": "AWS Blog: Automate document processing with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/automate-document-processing-with-amazon-bedrock-prompt-flows/"},
+                {"text": "AWS Blog: New Amazon Bedrock capabilities enhance data processing", "url": "https://aws.amazon.com/blogs/aws/new-amazon-bedrock-capabilities-enhance-data-processing-and-retrieval/"},
+                {"text": "Guidance for Multimodal Data Processing Using Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/solutions/guidance/multimodal-data-processing-using-amazon-bedrock-data-automation/"}
             ]
         }
     }

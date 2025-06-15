@@ -158,8 +158,9 @@ generative AI to analyze visual content and transform it into actionable informa
 """,
             "sources": [
                 {"text": "Amazon Bedrock Data Automation Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html"},
-                {"text": "Image Processing in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-image.html"},
-                {"text": "AWS Blog: Simplify multimodal generative AI with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/simplify-multimodal-generative-ai-with-amazon-bedrock-data-automation/"}
+                {"text": "Image Processing in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-image.html"},
+                {"text": "AWS Blog: Simplify multimodal generative AI with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/simplify-multimodal-generative-ai-with-amazon-bedrock-data-automation/"},
+                {"text": "AWS Blog: Get insights from multimodal content with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/aws/get-insights-from-multimodal-content-with-amazon-bedrock-data-automation-now-generally-available/"}
             ]
         },
         "image_analysis": {
@@ -196,11 +197,11 @@ BDA offers powerful visual detection features that transform what your applicati
 
 - **Retail**: Product recognition for inventory management and customer experiences
 - **Marketing**: Measure brand presence through logo detection in digital and print media
-- **Content Moderation**: Identify potentially unsafe or inappropriate visual content
+- **Content Moderation**: Identify potentially unsafe or inappropriate content across 7 categories: Explicit, Non-Explicit Nudity, Swimwear/Underwear, Violence, Drugs & Tobacco, Alcohol, and Hate Symbols
 - **Document Processing**: Extract text from forms, receipts, and image-based documents
 """,
             "sources": [
-                {"text": "Image Processing in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-image.html"}
+                {"text": "Image Processing in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-image.html"}
             ]
         },
         "image_classification": {
@@ -210,10 +211,10 @@ BDA's classification capabilities provide actionable insights from visual conten
 
 ### Classification Features
 
-- **IAB Taxonomy**: Classification using the Internet Advertising Bureau's industry-standard categories
+- **IAB Taxonomy**: Classification using the Internet Advertising Bureau's industry-standard categories (supports 24 top-level and 85 second-level categories)
 - **Custom Classifications**: Add your own categories through custom blueprints
 - **Confidence Scores**: Understand the reliability of classifications for better decision-making
-- **Multi-Label Classification**: Images can belong to multiple relevant categories
+- **Multi-Label Classification**: Images can belong to multiple relevant categories with parent-child relationships
 
 ### Business Impact
 
@@ -224,6 +225,7 @@ BDA's classification capabilities provide actionable insights from visual conten
 """,
             "sources": [
                 {"text": "Working with Standard Output in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-standard-output.html"},
+                {"text": "Image Processing in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-image.html"},
                 {"text": "AWS Blog: Building with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/building-with-amazon-bedrock-data-automation/"}
             ]
         },
@@ -236,8 +238,9 @@ Amazon Bedrock Data Automation helps bridge this gap by extracting text from ima
 ### Text Extraction Features
 
 - **Text Detection**: Identify and extract text from images with precise bounding boxes
-- **Spatial Recognition**: Understand where text appears within the image
-- **Structured Output**: Extract text in a consistent, structured format for further processing
+- **Spatial Recognition**: Understand where text appears within the image with polygon mapping
+- **Confidence Scoring**: Each detected text element includes a confidence score for validation
+- **Hierarchical Structure**: Text is organized by lines and words with parent-child relationships
 - **Visual Context Understanding**: Recognize text in relation to other visual elements
 
 ### Business Applications
@@ -251,6 +254,7 @@ For multilingual document processing, the AWS ecosystem offers complementary sol
 """,
             "sources": [
                 {"text": "Amazon Bedrock Data Automation Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html"},
+                {"text": "Image Processing in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-image.html"},
                 {"text": "Generate Insights from Content - Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/bedrock/bda/"}
             ]
         },
@@ -284,18 +288,22 @@ When you invoke Amazon Bedrock Data Automation for image analysis, a sophisticat
 
 1. **Image Ingestion**: The system loads and preprocesses the image from S3
 2. **Initial Analysis**: Computer vision models identify key visual elements (text, logos, objects)
-3. **Spatial Mapping**: Bounding boxes are calculated for detected elements
-4. **Semantic Analysis**: Generative AI creates descriptions and classifications of image content
-5. **Result Formation**: All extracted data is assembled into the requested output format
+3. **Spatial Mapping**: Bounding boxes and polygons are calculated for detected elements
+4. **Content Moderation**: Optional scanning for inappropriate content across 7 categories
+5. **Semantic Analysis**: Generative AI creates descriptions and classifications of image content
+6. **IAB Categorization**: Application of standardized advertising taxonomy categories
+7. **Result Formation**: All extracted data is assembled into the requested output format
 
 ### Performance Considerations
 
 - Processing time depends on image complexity, size, and requested detection types
 - High-resolution images with many elements take longer to process
 - Typical processing times range from seconds to a minute for complex images
+- Response includes important image metadata (dimensions, color depth, encoding)
 """,
             "sources": [
-                {"text": "Invoking Amazon Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-invoke.html"}            
+                {"text": "Invoking Amazon Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-invoke.html"},
+                {"text": "Image Processing in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-image.html"}
                 ]
         },
         "custom_blueprints": {
@@ -368,6 +376,8 @@ The structured data extracted from images by BDA enables various business applic
 - **Content Organization**: Automatically tag and categorize visual content
 - **Text Digitization**: Extract text from images for analysis and search
 - **Visual Search**: Enable search functionality based on image content
+- **Content Moderation**: Filter inappropriate content across 7 categories (Explicit, Non-Explicit Nudity, Swimwear/Underwear, Violence, Drugs & Tobacco, Alcohol, and Hate Symbols)
+- **Ad Targeting**: Match content to appropriate advertising using IAB taxonomy
 
 ### Integration Patterns
 
@@ -375,10 +385,13 @@ The structured data extracted from images by BDA enables various business applic
 - **Data Pipelines**: Feed extracted information into analytics systems
 - **Content Automation**: Trigger workflows based on visual content analysis
 - **Multimodal Applications**: Combine with other data sources for richer insights
+- **Knowledge Bases**: Feed extracted image insights into Bedrock Knowledge Bases for multimodal RAG
 """,
             "sources": [
                 {"text": "AWS Blog: Multimodal processing with Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/multimodal-processing-with-bedrock-data-automation/"},
-                {"text": "AWS Blog: Visual intelligence applications with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/visual-intelligence-applications-with-amazon-bedrock/"}
+                {"text": "AWS Blog: Visual intelligence applications with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/visual-intelligence-applications-with-amazon-bedrock/"},
+                {"text": "AWS Blog: Building a multimodal RAG application with Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/building-a-multimodal-rag-based-application-using-amazon-bedrock-data-automation-and-amazon-bedrock-knowledge-bases/"},
+                {"text": "AWS Blog: Get insights from multimodal content with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/aws/get-insights-from-multimodal-content-with-amazon-bedrock-data-automation-now-generally-available/"}
             ]
         }
     }

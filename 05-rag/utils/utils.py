@@ -1482,6 +1482,14 @@ class BDARAGUtils:
                         <li><strong>Customization:</strong> Tailor responses to your industry terminology and business context</li>
                     </ul>
                 </div>
+                
+                <div style="font-size:0.8em; border-top:1px solid #ddd; margin-top:20px; padding-top:10px;">
+                    <p><strong>Sources:</strong></p>
+                    <ul>
+                        <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html" target="_blank">Amazon Bedrock Knowledge Bases Documentation</a></li>
+                        <li><a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-fully-managed-bedrock.html" target="_blank">Knowledge bases for Amazon Bedrock - AWS Prescriptive Guidance</a></li>
+                    </ul>
+                </div>
             </div>
             """
             
@@ -1511,6 +1519,15 @@ class BDARAGUtils:
                         <li><strong>Performance Monitoring:</strong> Track accuracy, relevance, and business value metrics</li>
                     </ul>
                 </div>
+                
+                <div style="font-size:0.8em; border-top:1px solid #ddd; margin-top:20px; padding-top:10px;">
+                    <p><strong>Sources:</strong></p>
+                    <ul>
+                        <li><a href="https://docs.aws.amazon.com/nova/latest/userguide/rag-multimodal.html" target="_blank">Using Amazon Nova for Multimodal RAG - Amazon Nova</a></li>
+                        <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-create.html#kb-create-console" target="_blank">Create a knowledge base by connecting to a data source in Amazon Bedrock Knowledge Bases</a></li>
+                        <li><a href="https://aws.amazon.com/blogs/machine-learning/build-a-contextual-chatbot-application-using-knowledge-bases-for-amazon-bedrock/" target="_blank">Build a contextual chatbot application using Amazon Bedrock Knowledge Bases - AWS Machine Learning Blog</a></li>
+                    </ul>
+                </div>
             </div>
             """
             
@@ -1519,7 +1536,7 @@ class BDARAGUtils:
             <div style="background-color:#f8f8f8; padding:20px; border-radius:10px; margin:20px 0; font-family:Arial, sans-serif;">
                 <h2 style="color:#0972d1;">Amazon Bedrock Knowledge Base</h2>
                 
-                <p>Amazon Bedrock Knowledge Bases provide a fully managed solution for creating, managing, and querying vector databases to enable retrieval-augmented generation (RAG). Knowledge Bases serve as the intelligent memory for foundation models, allowing them to use your data to generate accurate and contextually relevant responses.</p>
+                <p>Amazon Bedrock Knowledge Bases is a fully managed capability that you can use to implement the entire RAG workflow from ingestion to retrieval and prompt augmentation—without building custom integrations to data sources and managing data flows. Knowledge Bases serve as the intelligent memory for foundation models, allowing them to use your data to generate accurate and contextually relevant responses.</p>
                 
                 <div style="margin:20px 0;">
                     <h3 style="color:#0972d1;">Key Capabilities</h3>
@@ -1540,6 +1557,15 @@ class BDARAGUtils:
                         <li><strong>Foundation Models:</strong> Access to embedding, generation, and reranking models via Amazon Bedrock</li>
                     </ul>
                 </div>
+                
+                <div style="font-size:0.8em; border-top:1px solid #ddd; margin-top:20px; padding-top:10px;">
+                    <p><strong>Sources:</strong></p>
+                    <ul>
+                        <li><a href="https://docs.aws.amazon.com/nova/latest/userguide/rag-br-knowledge.html" target="_blank">Using Amazon Bedrock Knowledge Bases - Amazon Nova</a></li>
+                        <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-how-it-works.html" target="_blank">How Amazon Bedrock knowledge bases work</a></li>
+                        <li><a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-fully-managed-bedrock.html" target="_blank">Knowledge bases for Amazon Bedrock - AWS Prescriptive Guidance</a></li>
+                    </ul>
+                </div>
             </div>
             """
             
@@ -1548,7 +1574,7 @@ class BDARAGUtils:
             <div style="background-color:#f8f8f8; padding:20px; border-radius:10px; margin:20px 0; font-family:Arial, sans-serif;">
                 <h2 style="color:#0972d1;">Knowledge Base Ingestion Process</h2>
                 
-                <p>Data ingestion is a critical process that transforms raw content into queryable knowledge by converting it into vector embeddings that foundation models can use. Amazon Bedrock Knowledge Bases handle this process with a streamlined workflow.</p>
+                <p>Amazon Bedrock Knowledge Bases internally fetches your documents, chunks them into blocks of text, converts the text to embeddings, and then stores the embeddings in your choice of vector database. Data ingestion is the critical process that transforms raw content into queryable knowledge.</p>
                 
                 <div style="margin:20px 0;">
                     <h3 style="color:#0972d1;">Ingestion Pipeline</h3>
@@ -1570,6 +1596,15 @@ class BDARAGUtils:
                         <li><strong>Custom:</strong> Apply custom chunking logic through Lambda functions for specialized needs</li>
                     </ul>
                 </div>
+                
+                <div style="font-size:0.8em; border-top:1px solid #ddd; margin-top:20px; padding-top:10px;">
+                    <p><strong>Sources:</strong></p>
+                    <ul>
+                        <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-data-source-customize-ingestion.html" target="_blank">Customize ingestion for a data source - Amazon Bedrock</a></li>
+                        <li><a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-fully-managed-bedrock.html" target="_blank">Knowledge bases for Amazon Bedrock - AWS Prescriptive Guidance</a></li>
+                        <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-advanced-parsing.html" target="_blank">Parsing options for your data source - Amazon Bedrock</a></li>
+                    </ul>
+                </div>
             </div>
             """
             
@@ -1578,15 +1613,15 @@ class BDARAGUtils:
             <div style="background-color:#f8f8f8; padding:20px; border-radius:10px; margin:20px 0; font-family:Arial, sans-serif;">
                 <h2 style="color:#0972d1;">Vector Search in Amazon Bedrock Knowledge Bases</h2>
                 
-                <p>Amazon Bedrock Knowledge Bases use Amazon OpenSearch Serverless as the underlying vector store technology. This fully managed service provides efficient similarity search capabilities for RAG applications.</p>
+                <p>Amazon Bedrock Knowledge Bases support multiple vector store options, with Amazon OpenSearch Serverless being the default choice. This fully managed service provides efficient similarity search capabilities for RAG applications without the need to provision or manage infrastructure.</p>
                 
                 <div style="margin:20px 0;">
-                    <h3 style="color:#0972d1;">Amazon OpenSearch Serverless Features</h3>
+                    <h3 style="color:#0972d1;">Vector Store Options</h3>
                     <ul>
-                        <li><strong>Fully Managed:</strong> No need to provision or manage infrastructure</li>
-                        <li><strong>Auto-scaling:</strong> Automatically scales based on your indexing and query workloads</li>
-                        <li><strong>k-NN:</strong> Built-in nearest neighbor search algorithms for vector similarity</li>
-                        <li><strong>Hybrid Search:</strong> Combine semantic (vector) and keyword (text) search capabilities</li>
+                        <li><strong>Amazon OpenSearch Serverless:</strong> Fully managed vector search with automatic scaling and pay-for-use pricing</li>
+                        <li><strong>Amazon Aurora PostgreSQL Serverless:</strong> SQL-based vector store with built-in pgvector extension</li>
+                        <li><strong>Amazon Neptune Analytics:</strong> Graph database for combining vector search with relationship-based queries</li>
+                        <li><strong>Custom Configurations:</strong> Connect to your own vector store instance with custom field mappings</li>
                     </ul>
                 </div>
                 
@@ -1599,6 +1634,15 @@ class BDARAGUtils:
                         <li><strong>Metadata Storage:</strong> Store source information and other metadata for attribution</li>
                     </ul>
                 </div>
+                
+                <div style="font-size:0.8em; border-top:1px solid #ddd; margin-top:20px; padding-top:10px;">
+                    <p><strong>Sources:</strong></p>
+                    <ul>
+                        <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create.html" target="_blank">Create a knowledge base by connecting to a data source in Amazon Bedrock Knowledge Bases</a></li>
+                        <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.VectorDB.html" target="_blank">Using Aurora PostgreSQL as a Knowledge Base for Amazon Bedrock - Amazon Aurora</a></li>
+                        <li><a href="https://aws.amazon.com/blogs/aws/knowledge-bases-now-delivers-fully-managed-rag-experience-in-amazon-bedrock/" target="_blank">Knowledge Bases now delivers fully managed RAG experience in Amazon Bedrock - AWS Blog</a></li>
+                    </ul>
+                </div>
             </div>
             """
             
@@ -1607,7 +1651,7 @@ class BDARAGUtils:
             <div style="background-color:#f8f8f8; padding:20px; border-radius:10px; margin:20px 0; font-family:Arial, sans-serif;">
                 <h2 style="color:#0972d1;">Semantic Search Process</h2>
                 
-                <p>Semantic search goes beyond keyword matching to find content based on meaning and context. In RAG applications, it enables finding relevant information even when the exact terminology differs.</p>
+                <p>Amazon Bedrock Knowledge Bases provides two primary APIs for RAG: RetrieveAndGenerate for complete query-to-answer workflows, and Retrieve for direct access to search results. These APIs enable semantic search that goes beyond keyword matching to find content based on meaning and context.</p>
                 
                 <div style="margin:20px 0;">
                     <h3 style="color:#0972d1;">The RAG Query Process</h3>
@@ -1622,20 +1666,66 @@ class BDARAGUtils:
                 </div>
                 
                 <div style="margin:20px 0;">
-                    <h3 style="color:#0972d1;">Cross-Modal Retrieval</h3>
-                    <p>In multimodal RAG, the system makes connections between different types of media:</p>
+                    <h3 style="color:#0972d1;">Multimodal Retrieval Options</h3>
+                    <p>When working with multimodal data in RAG applications, Amazon provides two primary approaches:</p>
                     <ul>
-                        <li><strong>Text-to-Image:</strong> Finding relevant images based on textual descriptions</li>
-                        <li><strong>Audio-to-Text:</strong> Matching spoken content with written documentation</li>
-                        <li><strong>Image-to-Video:</strong> Finding video segments containing similar visual elements</li>
-                        <li><strong>Query-to-All:</strong> Finding relevant content across all modalities from a single query</li>
+                        <li><strong>Multimodal Embeddings:</strong> Using models like Titan Multimodal Embeddings to convert both text and images into vector representations</li>
+                        <li><strong>Text-based Representations:</strong> Converting multimodal content into text descriptions that can be embedded with text embeddings models</li>
+                        <li><strong>Bedrock Data Automation Parser:</strong> Processing multimodal data through BDA to extract structured information before ingestion</li>
+                        <li><strong>Supplemental Storage Configuration:</strong> Storing extracted multimodal data in S3 for reference during query responses</li>
+                    </ul>
+                </div>
+                
+                <div style="font-size:0.8em; border-top:1px solid #ddd; margin-top:20px; padding-top:10px;">
+                    <p><strong>Sources:</strong></p>
+                    <ul>
+                        <li><a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html" target="_blank">RetrieveAndGenerate - Amazon Bedrock API Reference</a></li>
+                        <li><a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html" target="_blank">Retrieve - Amazon Bedrock API Reference</a></li>
+                        <li><a href="https://docs.aws.amazon.com/nova/latest/userguide/rag-multimodal.html" target="_blank">Using Amazon Nova for Multimodal RAG - Amazon Nova</a></li>
+                        <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-embed-mm.html" target="_blank">Amazon Titan Multimodal Embeddings G1 - Amazon Bedrock</a></li>
                     </ul>
                 </div>
             </div>
             """
-        else:
-            html = f"<div>Context type '{context_type}' not recognized</div>"
-            
+
+        elif context_type == "bedrock_data_automation":
+            html = """
+            <div style="background-color:#f8f8f8; padding:20px; border-radius:10px; margin:20px 0; font-family:Arial, sans-serif;">
+                <h2 style="color:#0972d1;">Amazon Bedrock Data Automation for Multimodal RAG</h2>
+                
+                <p>Bedrock Data Automation (BDA) is a cloud-based service that simplifies the process of extracting valuable insights from unstructured content—such as documents, images, video, and audio. BDA leverages generative AI to automate the transformation of multi-modal data into structured formats that can be integrated with RAG applications.</p>
+                
+                <div style="margin:20px 0;">
+                    <h3 style="color:#0972d1;">BDA Integration with Knowledge Bases</h3>
+                    <ul>
+                        <li><strong>Parsing Configuration:</strong> When creating a Knowledge Base, you can specify BDA as the parser for multimodal data</li>
+                        <li><strong>Automatic Extraction:</strong> BDA analyzes each modality and extracts structured information appropriate for that content type</li>
+                        <li><strong>Cross-Modal Linking:</strong> BDA helps maintain relationships between related content across modalities</li>
+                        <li><strong>Standardized Output:</strong> Creates consistent, structured outputs that can be effectively embedded and retrieved</li>
+                    </ul>
+                </div>
+                
+                <div style="margin:20px 0;">
+                    <h3 style="color:#0972d1;">Multimodal Data Processing</h3>
+                    <ul>
+                        <li><strong>Documents:</strong> Text extraction, table detection, form parsing, key-value extraction</li>
+                        <li><strong>Images:</strong> Object detection, text detection, scene understanding, content categorization</li>
+                        <li><strong>Video:</strong> Scene detection, chapter summarization, content moderation, transcript generation</li>
+                        <li><strong>Audio:</strong> Speech-to-text transcription, speaker identification, topic segmentation, sentiment analysis</li>
+                    </ul>
+                </div>
+                
+                <div style="font-size:0.8em; border-top:1px solid #ddd; margin-top:20px; padding-top:10px;">
+                    <p><strong>Sources:</strong></p>
+                    <ul>
+                        <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html" target="_blank">Transform unstructured data into meaningful insights using Amazon Bedrock Data Automation</a></li>
+                        <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-advanced-parsing.html" target="_blank">Parsing options for your data source - Amazon Bedrock</a></li>
+                        <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/bda-how-it-works.html" target="_blank">How Bedrock Data Automation works - Amazon Bedrock</a></li>
+                        <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/bda-projects.html" target="_blank">Bedrock Data Automation projects - Amazon Bedrock</a></li>
+                    </ul>
+                </div>
+            </div>
+            """
         display(HTML(html))
         
     def delete_kb(self, delete_s3_bucket=False, delete_iam_roles_and_policies=True, delete_lambda_function=False):

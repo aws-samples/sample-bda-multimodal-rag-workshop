@@ -404,10 +404,11 @@ complex, multimodal assets.
 
 - **Visual Understanding**: Extract scenes, objects, people, text, and logos from video frames
 - **Temporal Analysis**: Understand how content changes over time with chapter detection
-- **Content Classification**: Automatically categorize video content using IAB taxonomies
+- **Content Classification**: Automatically categorize video content using IAB taxonomies (24 top-level categories)
 - **Multimodal Integration**: Combine visual analysis with transcript and audio processing
-- **Content Moderation**: Identify potentially sensitive or inappropriate content across multiple dimensions
+- **Content Moderation**: Identify potentially sensitive or inappropriate content across 7 official categories
 - **Summarization**: Generate concise overviews of video content for improved discoverability
+- **Shot and Chapter Analysis**: Break down videos into meaningful segments with detailed metadata
 
 ### Industry Applications
 
@@ -420,8 +421,8 @@ complex, multimodal assets.
 - **Advertising & Marketing**
   - Brand and logo detection in sponsored content
   - Competitive analysis of video marketing campaigns
-  - Audience engagement analysis for video content
   - Contextual ad placement based on video topics and scenes
+  - IAB taxonomy classification for targeted advertising
 
 - **Retail & E-commerce**
   - Product detection and feature extraction from video reviews
@@ -441,6 +442,7 @@ complex, multimodal assets.
 - Increase video asset value by 40-50% through enhanced discoverability
 - Accelerate time-to-market for video content by automating metadata creation
 - Enable new revenue streams through improved content understanding
+- Reduce risk with automated content moderation at scale
 
 ### Video Analysis Evolution
 
@@ -451,9 +453,10 @@ with unprecedented speed and accuracy.
 """,
             "sources": [
                 {"text": "Amazon Bedrock Data Automation Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html"},
-                {"text": "AWS Blog: Video Analytics with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-bedrock/"},
-                {"text": "AWS Blog: Content Moderation with Generative AI", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-bedrock/"},
-                {"text": "Case Study: Media Organization Improves Video Discoverability", "url": "https://aws.amazon.com/solutions/case-studies/?awsf.customer-references-filter-category=*all&awsm.page-customer-references=1"}
+                {"text": "Amazon Bedrock Video Output Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-video.html"},
+                {"text": "New Amazon Bedrock Data Automation capabilities", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"},
+                {"text": "Automate video insights for contextual advertising", "url": "https://aws.amazon.com/blogs/machine-learning/automate-video-insights-for-contextual-advertising-using-amazon-bedrock-data-automation/"},
+                {"text": "Unleashing the multimodal power of Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/unleashing-the-multimodal-power-of-amazon-bedrock-data-automation-to-transform-unstructured-data-into-actionable-insights/"}
             ]
         },
         "chapter_detection": {
@@ -470,6 +473,17 @@ efficient video content management.
 - **Targeted Analysis**: Apply specialized analysis to specific video segments
 - **Partial Content Reuse**: Identify self-contained segments for content repurposing
 - **Enhanced Search**: Map user queries to specific video segments rather than entire videos
+
+### Chapter Summaries
+
+Video chapter summarization provides descriptive summaries for individual scenes within a video. 
+A video chapter is a sequence of shots that form a coherent unit of action or narrative. BDA:
+
+- Breaks down videos into meaningful segments based on visual and audible cues
+- Provides precise timestamps for each chapter
+- Generates concise summaries describing each chapter's content
+- Identifies speakers where possible, using audio and visual cues
+- Creates a hierarchical structure of video content (chapters containing shots)
 
 ### How Chapter Detection Works
 
@@ -491,7 +505,8 @@ Organizations leverage chapter detection in several ways:
 5. **Content Summarization**: Generate summaries for individual chapters
 """,
             "sources": [
-                {"text": "AWS Blog: Video Indexing with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-bedrock/"},
+                {"text": "Amazon Bedrock Video Output Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-video.html"},
+                {"text": "AWS Blog: New Amazon Bedrock Data Automation capabilities", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"},
                 {"text": "Research: Multimodal Video Segmentation", "url": "https://arxiv.org/abs/2201.04850"}
             ]
         },
@@ -506,6 +521,7 @@ This capability breaks down videos into their fundamental visual building blocks
 - **Shot**: A continuous segment of video from a single camera perspective
 - **Scene**: A collection of shots that form a coherent narrative unit
 - **Transition**: The boundary between shots (cut, fade, dissolve, wipe, etc.)
+- **Frame**: Individual images within a shot with specific timestamp references
 
 ### Business Applications
 
@@ -514,6 +530,17 @@ This capability breaks down videos into their fundamental visual building blocks
 - **Content Summarization**: Create visual summaries using key frames
 - **Editing Analysis**: Study pacing and visual structure of professional videos
 - **Content Comparisons**: Compare visual structures across multiple videos
+- **Search Enhancement**: Enable search within specific video segments
+
+### Shot Analysis Features
+
+Amazon Bedrock Data Automation offers comprehensive shot analysis:
+
+- **Detailed Metadata**: Each shot contains timestamps, frame indices, and duration
+- **Confidence Scores**: Reliability metrics for detected shot boundaries
+- **Chapter Mapping**: Links between shots and higher-level chapters
+- **Frame Extraction**: Representative frames that capture the essence of each shot
+- **Statistical Analysis**: Shot count, average duration, and distribution patterns
 
 ### Technical Evolution
 
@@ -523,11 +550,12 @@ Modern shot detection systems can identify:
 - Camera movements (pans, tilts, zooms)
 - Visual consistency within shots
 
-This analysis forms the basis for higher-level understanding of visual narratives.
+This analysis forms the basis for higher-level understanding of visual narratives and allows for sophisticated video navigation and search capabilities.
 """,
             "sources": [
-                {"text": "AWS Blog: Visual Content Analysis", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-rekognition/"},
-                {"text": "Research: Deep Learning for Shot Boundary Detection", "url": "https://arxiv.org/abs/1705.08214"}
+                {"text": "Amazon Bedrock Video Output Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-video.html"},
+                {"text": "New Amazon Bedrock Data Automation capabilities", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"},
+                {"text": "AWS Blog: Visual Content Analysis", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-rekognition/"}
             ]
         },
         "content_moderation": {
@@ -545,9 +573,21 @@ content across both visual and audio components.
 - **User Trust**: Build confidence through consistent content standards
 - **Advertiser Protection**: Ensure ad placement only on appropriate content
 
+### Moderation Categories
+
+BDA supports 7 official moderation categories for video content:
+
+- **Explicit**: Content of a sexual nature
+- **Non-Explicit Nudity of Intimate parts and Kissing**: Non-sexual nudity and intimate physical contact
+- **Swimwear or Underwear**: People in minimal clothing
+- **Violence**: Violent acts, weapons, blood, and physical harm
+- **Drugs & Tobacco**: Drug paraphernalia and tobacco products
+- **Alcohol**: Alcoholic beverages and drinking
+- **Hate symbols**: Symbols associated with hate groups
+
 ### Moderation Dimensions
 
-BDA can detect various categories of potentially inappropriate content:
+BDA can detect potentially inappropriate content across multiple dimensions:
 
 - **Visual Moderation**: Detection of sensitive images, gestures, objects
 - **Audio Moderation**: Detection of inappropriate speech, sounds, music
@@ -564,8 +604,9 @@ Organizations typically implement video moderation using one of these patterns:
 4. **Progressive Moderation**: Start with strict automated rules and adjust based on performance
 """,
             "sources": [
+                {"text": "Amazon Bedrock Video Output Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-video.html"},
                 {"text": "Content Moderation Best Practices", "url": "https://aws.amazon.com/solutions/implementations/content-moderation/"},
-                {"text": "AWS Blog: Content moderation using artificial intelligence", "url": "https://aws.amazon.com/blogs/machine-learning/content-moderation-using-artificial-intelligence/"}
+                {"text": "New Amazon Bedrock Data Automation capabilities streamline video analysis", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"}
             ]
         },
         "video_text_detection": {
@@ -657,7 +698,16 @@ and discovery purposes.
 - **Audience Analysis**: Understand viewer interests through content preferences
 - **Brand Safety**: Identify content categories to include or exclude for ad placement
 
-### IAB Taxonomy
+### IAB Taxonomy Support
+
+Amazon Bedrock Data Automation supports comprehensive IAB taxonomy classification:
+
+- **Coverage**: 24 top-level (L1) categories and 85 second-level (L2) categories
+- **Scene-Level Analysis**: Categories assigned to individual chapters for precise targeting
+- **Confidence Scores**: Each category assignment includes confidence metrics
+- **Multi-Category Classification**: Content can be assigned multiple relevant categories simultaneously
+
+### IAB Taxonomy Examples
 
 The IAB Content Taxonomy includes categories such as:
 
@@ -678,10 +728,12 @@ Organizations apply IAB categorization through:
 2. **Ad Inventory**: Create categorized ad inventory for programmatic buying
 3. **Content Filtering**: Enable category-based filtering for viewers
 4. **Analytics**: Track performance and engagement by content category
+5. **Contextual Advertising**: Match advertisements to content based on IAB categories
 """,
             "sources": [
+                {"text": "Amazon Bedrock Video Output Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-video.html"},
                 {"text": "IAB Content Taxonomy", "url": "https://www.iab.com/guidelines/content-taxonomy/"},
-                {"text": "AWS Blog: Content Classification with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-bedrock/"}
+                {"text": "Automate video insights for contextual advertising", "url": "https://aws.amazon.com/blogs/machine-learning/automate-video-insights-for-contextual-advertising-using-amazon-bedrock-data-automation/"}
             ]
         }
     }

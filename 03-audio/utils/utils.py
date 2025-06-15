@@ -334,7 +334,7 @@ def show_business_context(context_type=None, auto_initialize=False):
             "title": "The Voice of Information: Business Value of Audio Analysis",
             "content": """
 Audio data represents one of the most natural and information-rich forms of human communication. 
-Amazon Bedrock Data Automation (BDA) enables organizations to extract structured insights from this previously untapped source.
+Amazon Bedrock Data Automation (BDA) enables organizations to extract structured insights from this previously untapped source through a unified processing pipeline.
 
 ### Core Business Capabilities
 
@@ -351,24 +351,28 @@ Amazon Bedrock Data Automation (BDA) enables organizations to extract structured
   - Compliance verification for regulated conversations
   - Agent performance evaluation and coaching opportunities
   - Identification of common customer issues for process improvement
+  - Turn-by-turn conversation analysis with speaker diarization
 
 - **Media & Entertainment**
   - Automated podcast transcription and summarization
   - Content moderation for user-generated audio
   - Content indexing and search for audio libraries
   - Metadata generation for improved content discovery
+  - Topic segmentation for long-form audio content
 
 - **Healthcare**
   - Medical dictation transcription with specialty term recognition
   - Patient interaction analysis for improved care
   - Documentation assistance for clinical encounters
   - Compliance monitoring for patient communications
+  - Clinical conversation analytics for quality improvement
 
 - **Financial Services**
   - Earnings call analysis for investment insights
   - Advisory call compliance monitoring
   - Client interaction analysis for relationship management
   - Fraud detection in phone banking interactions
+  - Automated meeting notes for financial consultations
 
 ### ROI Opportunities
 
@@ -376,18 +380,21 @@ Amazon Bedrock Data Automation (BDA) enables organizations to extract structured
 - Increase process efficiency by 60-80% for audio content management
 - Unlock previously inaccessible insights from archived audio content
 - Enable new use cases through audio content searchability
+- Automate compliance monitoring across audio communications
 
 ### Audio Processing Revolution
 
 Before generative AI, audio processing required complex pipelines with separate models for transcription, 
 speaker diarization, topic detection, and summarization. BDA unifies these capabilities into a single, 
-powerful API that delivers comprehensive audio insights.
+powerful API that delivers comprehensive audio insights. The standard output includes full audio summary, 
+complete transcript, topic segmentation, and content moderation - all from a single invocation.
 """,
             "sources": [
                 {"text": "Amazon Bedrock Data Automation Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html"},
-                {"text": "AWS Blog: Audio Analytics with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-bedrock/"},
-                {"text": "AWS Blog: Contact Center Intelligence with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-bedrock/"},
-                {"text": "Case Study: Media Organization Improves Content Discovery", "url": "https://aws.amazon.com/solutions/case-studies/?awsf.customer-references-filter-category=*all&awsm.page-customer-references=1"}
+                {"text": "Amazon Bedrock Audio Processing", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/audio-processing.html"},
+                {"text": "AWS Blog: Unleashing the multimodal power of Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/unleashing-the-multimodal-power-of-amazon-bedrock-data-automation-to-transform-unstructured-data-into-actionable-insights/"},
+                {"text": "AWS Blog: New Amazon Bedrock Data Automation capabilities streamline video and audio analysis", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"},
+                {"text": "AWS Blog: Contact Center Intelligence with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-bedrock/"}
             ]
         },
         "voice_foundation": {
@@ -467,11 +474,14 @@ When you invoke Amazon Bedrock Data Automation for audio, the service executes a
 ### Audio Processing Steps
 
 1. **Audio Ingestion**: The system loads and preprocesses the audio file from S3
-2. **Speech Recognition**: Advanced AI models convert speech to text with high accuracy
-3. **Speaker Diarization**: The system identifies and labels different speakers
-4. **Content Analysis**: AI models detect topics, sentiment, and potentially sensitive content
-5. **Summarization**: Generative AI creates summaries of the overall audio and key topics
-6. **Result Formation**: All extracted data is assembled into the requested output formats
+2. **Metadata Extraction**: BDA analyzes technical audio attributes like sample rate, bitrate, channels, codec, and duration
+3. **Speech Recognition**: Advanced AI models convert speech to text with high accuracy for full audio transcript
+4. **Speaker Diarization**: The system identifies and labels different speakers throughout the audio
+5. **Audio Segmentation**: Content is divided into segments based on speaker changes and natural breaks
+6. **Topic Identification**: The content is analyzed to identify distinct topic segments with timestamps
+7. **Content Moderation**: AI models identify potentially sensitive content across seven categories
+8. **Comprehensive Summarization**: Generative AI creates summaries of the overall audio and key topics
+9. **Result Formation**: All extracted data is assembled into a structured JSON output with timestamps
 
 ### Performance Considerations
 
@@ -479,8 +489,11 @@ When you invoke Amazon Bedrock Data Automation for audio, the service executes a
 - Multi-speaker audio requires more processing for accurate speaker separation
 - Ambient noise and audio quality impact transcription accuracy
 - Typical processing times range from seconds to a few minutes for longer recordings
+- Audio with complex terminology may require custom configuration for optimal results
 """,
             "sources": [
+                {"text": "Amazon Bedrock Audio Processing", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/audio-processing.html"},
+                {"text": "How Bedrock Data Automation works", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-how-it-works.html"},
                 {"text": "Invoking Amazon Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-invoke.html"}            
             ]
         },
@@ -488,7 +501,7 @@ When you invoke Amazon Bedrock Data Automation for audio, the service executes a
             "title": "Speaker Identification in Business",
             "content": """
 Speaker diarization (identifying who said what) is a powerful capability that transforms how organizations 
-understand conversations and interactions.
+understand conversations and interactions. Amazon Bedrock Data Automation can distinguish between multiple speakers in audio content, labeling each speaker's contributions throughout the transcript.
 
 ### Key Applications
 
@@ -497,6 +510,7 @@ understand conversations and interactions.
 - **Multi-Party Negotiations**: Track positions and commitments from different stakeholders
 - **Interview Analysis**: Separate interviewer and candidate responses for systematic evaluation
 - **Panel Discussions**: Identify and track different expert opinions on discussed topics
+- **Earnings Call Analysis**: Differentiate between executives, analysts, and moderators
 
 ### Business Impact
 
@@ -505,6 +519,7 @@ understand conversations and interactions.
 - **Knowledge Management**: Attribute insights and expertise to specific individuals
 - **Compliance**: Verify that required statements were made by authorized individuals
 - **Training**: Create better conversational AI by understanding human dialogue patterns
+- **Sentiment Analysis**: Track emotional patterns by speaker across conversations
 
 ### Technical Evolution
 
@@ -512,9 +527,15 @@ Modern speaker diarization systems can identify speakers even when they briefly 
 distinguish between similar voices, and maintain speaker identity throughout long recordings.
 This capability was previously error-prone and limited, but generative AI has dramatically
 improved accuracy and robustness.
+
+In BDA's output, speaker information is provided in the segments section with timestamps, allowing for 
+precise tracking of who said what throughout the conversation. This structured output enables deeper 
+conversation analytics than was previously possible with traditional transcription services.
 """,
             "sources": [
-                {"text": "AWS Blog: Speaker Diarization with Amazon Transcribe", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-transcribe/"},
+                {"text": "Amazon Bedrock Audio Processing", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/audio-processing.html"},
+                {"text": "AWS Blog: Unleashing the multimodal power of Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/unleashing-the-multimodal-power-of-amazon-bedrock-data-automation-to-transform-unstructured-data-into-actionable-insights/"},
+                {"text": "Speaker Diarization (Amazon Transcribe)", "url": "https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html"},
                 {"text": "Research: Advances in Speaker Diarization", "url": "https://arxiv.org/abs/2303.06876"}
             ]
         },
@@ -534,14 +555,15 @@ or public audio content. BDA provides sophisticated detection of potentially sen
 
 ### Moderation Categories
 
-BDA can detect various categories of potentially inappropriate content:
+BDA's content moderation for audio can detect seven official categories of potentially inappropriate content:
 
-- **Profanity**: Detection of explicit language
-- **Hate Speech**: Identification of discriminatory or hateful content
-- **Violence**: References to violent actions or threats
-- **Sexual Content**: Detection of explicit sexual references
-- **Harassment**: Identification of bullying or abusive language
-- **Graphic Content**: References to disturbing or graphic descriptions
+- **Profanity**: Detection of explicit language, words, phrases, or acronyms that are impolite, vulgar, or offensive
+- **Hate Speech**: Identification of content that criticizes, insults, denounces, or dehumanizes a person or group based on identity attributes (race, ethnicity, gender, religion, sexual orientation, etc.)
+- **Sexual**: Detection of speech that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex
+- **Insults**: Identification of demeaning, humiliating, mocking, insulting, or belittling language (also labeled as bullying)
+- **Violence or Threat**: Detection of speech that includes threats seeking to inflict pain, injury, or hostility toward a person or group
+- **Graphic**: Identification of speech that uses visually descriptive and unpleasantly vivid imagery, often intentionally verbose to amplify discomfort
+- **Harassment or Abuse**: Detection of speech intended to affect the psychological well-being of the recipient, including demeaning and objectifying terms (also labeled as harassment)
 
 ### Implementation Approaches
 
@@ -551,8 +573,10 @@ Organizations typically implement audio moderation using one of these patterns:
 2. **Post-publication Monitoring**: Continuously analyze published content
 3. **Flagging System**: Automatically flag potential issues for human review
 4. **Risk Scoring**: Calculate content risk scores to prioritize review
+5. **Confidence Thresholds**: Define different actions based on confidence levels
 """,
             "sources": [
+                {"text": "Amazon Bedrock Audio Processing - Content Moderation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/audio-processing.html"},
                 {"text": "Content Moderation Best Practices", "url": "https://aws.amazon.com/solutions/implementations/content-moderation/"},
                 {"text": "AWS Blog: Content moderation using artificial intelligence", "url": "https://aws.amazon.com/blogs/machine-learning/content-moderation-using-artificial-intelligence/"}
             ]
@@ -561,7 +585,7 @@ Organizations typically implement audio moderation using one of these patterns:
             "title": "Audio Summarization Applications",
             "content": """
 Automatic summarization of audio content creates tremendous business value by making spoken 
-information more accessible and actionable.
+information more accessible and actionable. Amazon Bedrock Data Automation provides comprehensive summarization capabilities for audio content.
 
 ### Business Use Cases
 
@@ -570,15 +594,16 @@ information more accessible and actionable.
 - **Media Content**: Create concise summaries of podcasts, interviews, and presentations
 - **Educational Content**: Generate lecture summaries for improved learning and review
 - **Legal Proceedings**: Summarize testimonies, hearings, and depositions
+- **Market Research**: Distill insights from focus groups and interviews
 
 ### Types of Summarization
 
-BDA provides multiple summarization approaches:
+BDA provides multiple summarization approaches for audio:
 
-1. **Overall Audio Summary**: A comprehensive summary of the entire audio content
-2. **Topic Summaries**: Individual summaries for each detected topic or segment
-3. **Extractive Summaries**: Key verbatim quotes and statements from the audio
-4. **Abstractive Summaries**: AI-generated text that captures the essence of the content
+1. **Full Audio Summary**: A comprehensive summary of the entire audio content, distilling key themes, events, and information
+2. **Topic Summaries**: Individual summaries for each detected topic segment with timestamps, allowing for navigation to specific sections
+3. **Extractive Summaries**: Key verbatim quotes and statements from the audio with speaker attribution
+4. **Abstractive Summaries**: AI-generated text that captures the essence of the content in a cohesive narrative
 
 ### Integration Patterns
 
@@ -589,9 +614,12 @@ Organizations leverage audio summarization through:
 - **Search Enhancement**: Making audio content discoverable through summary text
 - **Workflow Integration**: Triggering actions based on summarized content
 - **Dashboard Reporting**: Including audio insights in business intelligence
+- **Knowledge Base Integration**: Using audio summaries as part of multimodal RAG applications
 """,
             "sources": [
-                {"text": "AWS Blog: Summarization with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-bedrock/"},
+                {"text": "Amazon Bedrock Audio Processing", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/audio-processing.html"},
+                {"text": "AWS Blog: New Amazon Bedrock Data Automation capabilities streamline video and audio analysis", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"},
+                {"text": "AWS Blog: Get insights from multimodal content with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/aws/get-insights-from-multimodal-content-with-amazon-bedrock-data-automation-now-generally-available/"},
                 {"text": "Research: Advances in Abstractive Summarization", "url": "https://arxiv.org/abs/2210.11248"}
             ]
         },
