@@ -506,8 +506,7 @@ Organizations leverage chapter detection in several ways:
 """,
             "sources": [
                 {"text": "Amazon Bedrock Video Output Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-video.html"},
-                {"text": "AWS Blog: New Amazon Bedrock Data Automation capabilities", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"},
-                {"text": "Research: Multimodal Video Segmentation", "url": "https://arxiv.org/abs/2201.04850"}
+                {"text": "AWS Blog: New Amazon Bedrock Data Automation capabilities", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"}
             ]
         },
         "scene_detection": {
@@ -554,8 +553,7 @@ This analysis forms the basis for higher-level understanding of visual narrative
 """,
             "sources": [
                 {"text": "Amazon Bedrock Video Output Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-video.html"},
-                {"text": "New Amazon Bedrock Data Automation capabilities", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"},
-                {"text": "AWS Blog: Visual Content Analysis", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-rekognition/"}
+                {"text": "New Amazon Bedrock Data Automation capabilities", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"}
             ]
         },
         "content_moderation": {
@@ -605,7 +603,6 @@ Organizations typically implement video moderation using one of these patterns:
 """,
             "sources": [
                 {"text": "Amazon Bedrock Video Output Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-video.html"},
-                {"text": "Content Moderation Best Practices", "url": "https://aws.amazon.com/solutions/implementations/content-moderation/"},
                 {"text": "New Amazon Bedrock Data Automation capabilities streamline video analysis", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"}
             ]
         },
@@ -640,8 +637,6 @@ BDA can detect various types of text in videos:
 - Confidence scores help prioritize high-quality text extractions
 """,
             "sources": [
-                {"text": "AWS Blog: Video Text Detection with Amazon Rekognition", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-rekognition/"},
-                {"text": "Research: Text Detection and Recognition in Videos", "url": "https://arxiv.org/abs/1904.12581"}
             ]
         },
         "logo_detection": {
@@ -679,8 +674,6 @@ Organizations leverage logo detection through:
 4. **Media Planning**: Measure ROI of sponsorship and placement investments
 """,
             "sources": [
-                {"text": "AWS Blog: Logo Detection with Amazon Rekognition", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-rekognition/"},
-                {"text": "Research: Deep Logo Detection in Videos", "url": "https://arxiv.org/abs/1812.00800"}
             ]
         },
         "iab_categorization": {

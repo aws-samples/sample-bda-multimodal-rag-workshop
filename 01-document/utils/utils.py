@@ -178,6 +178,14 @@ The configuration you choose significantly impacts the quality and usefulness of
   - **ELEMENT**: Identification of semantic elements like tables and figures
   - **LINE/WORD**: Detailed text positioning for precise extraction
 
+- **Output Format Parameters**: Control format of extracted data
+  - **JSON**: Default output format for all BDA API responses
+  - **textFormat**: Additional output formats generated alongside JSON
+    - **PLAIN_TEXT**: Simplified text-only version of content
+    - **MARKDOWN**: Formatted text with structure and emphasis
+    - **HTML**: Web-ready representation with document structure
+    - **CSV**: Tabular data format for spreadsheet applications
+
 - **Bounding Box**: When enabled, provides coordinates for document elements, critical for spatial understanding and reconstruction
 
 - **Generative Fields**: AI-generated summaries and descriptions that provide contextual understanding
@@ -212,7 +220,7 @@ When you invoke Amazon Bedrock Data Automation, the service executes a sophistic
 - **Input Configuration**: Specify the S3 location of your document
 - **Output Configuration**: Define where processed results should be stored
 - **Data Automation Configuration**: Reference your project ARN and stage
-- **Data Automation Profile**: Specify the processing profile to use
+- **dataAutomationProfileArn**: A reference parameter that identifies the processing profile to use
 
 ### Performance Considerations
 
@@ -245,6 +253,8 @@ Projects are a fundamental architectural component in Amazon Bedrock Data Automa
 Each project can have two stages:
 - **LIVE**: Used for production processing of customer requests
 - **DEVELOPMENT**: Used for testing and modification before promoting to LIVE
+
+These stages represent BDA's built-in versioning mechanism, allowing you to safely evolve your processing configurations while maintaining production stability. The DEVELOPMENT stage is accessible only through the API (not the console) for testing changes before promoting them to production.
 
 ### Project Limits
 
@@ -287,7 +297,6 @@ The structured data extracted by BDA enables various business applications that 
 - **Knowledge Bases**: Build searchable repositories of document information
 """,
             "sources": [
-                {"text": "AWS Blog: Automate document processing with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/automate-document-processing-with-amazon-bedrock-prompt-flows/"},
                 {"text": "AWS Blog: New Amazon Bedrock capabilities enhance data processing", "url": "https://aws.amazon.com/blogs/aws/new-amazon-bedrock-capabilities-enhance-data-processing-and-retrieval/"},
                 {"text": "Guidance for Multimodal Data Processing Using Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/solutions/guidance/multimodal-data-processing-using-amazon-bedrock-data-automation/"}
             ]

@@ -1523,7 +1523,6 @@ class BDARAGUtils:
                 <div style="font-size:0.8em; border-top:1px solid #ddd; margin-top:20px; padding-top:10px;">
                     <p><strong>Sources:</strong></p>
                     <ul>
-                        <li><a href="https://docs.aws.amazon.com/nova/latest/userguide/rag-multimodal.html" target="_blank">Using Amazon Nova for Multimodal RAG - Amazon Nova</a></li>
                         <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-create.html#kb-create-console" target="_blank">Create a knowledge base by connecting to a data source in Amazon Bedrock Knowledge Bases</a></li>
                         <li><a href="https://aws.amazon.com/blogs/machine-learning/build-a-contextual-chatbot-application-using-knowledge-bases-for-amazon-bedrock/" target="_blank">Build a contextual chatbot application using Amazon Bedrock Knowledge Bases - AWS Machine Learning Blog</a></li>
                     </ul>
@@ -1681,7 +1680,6 @@ class BDARAGUtils:
                     <ul>
                         <li><a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html" target="_blank">RetrieveAndGenerate - Amazon Bedrock API Reference</a></li>
                         <li><a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html" target="_blank">Retrieve - Amazon Bedrock API Reference</a></li>
-                        <li><a href="https://docs.aws.amazon.com/nova/latest/userguide/rag-multimodal.html" target="_blank">Using Amazon Nova for Multimodal RAG - Amazon Nova</a></li>
                         <li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-embed-mm.html" target="_blank">Amazon Titan Multimodal Embeddings G1 - Amazon Bedrock</a></li>
                     </ul>
                 </div>

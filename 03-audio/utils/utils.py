@@ -393,8 +393,7 @@ complete transcript, topic segmentation, and content moderation - all from a sin
                 {"text": "Amazon Bedrock Data Automation Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html"},
                 {"text": "Amazon Bedrock Audio Processing", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/audio-processing.html"},
                 {"text": "AWS Blog: Unleashing the multimodal power of Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/unleashing-the-multimodal-power-of-amazon-bedrock-data-automation-to-transform-unstructured-data-into-actionable-insights/"},
-                {"text": "AWS Blog: New Amazon Bedrock Data Automation capabilities streamline video and audio analysis", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"},
-                {"text": "AWS Blog: Contact Center Intelligence with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-bedrock/"}
+                {"text": "AWS Blog: New Amazon Bedrock Data Automation capabilities streamline video and audio analysis", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"}
             ]
         },
         "voice_foundation": {
@@ -462,7 +461,6 @@ insights from spoken content.
 - Enable new use cases through audio content searchability
 """,
             "sources": [
-                {"text": "AWS Blog: Contact Center Intelligence with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-bedrock/"},
                 {"text": "Case Study: Media Organization Improves Content Discovery", "url": "https://aws.amazon.com/solutions/case-studies/?awsf.customer-references-filter-category=*all&awsm.page-customer-references=1"}
             ]
         },
@@ -534,9 +532,7 @@ conversation analytics than was previously possible with traditional transcripti
 """,
             "sources": [
                 {"text": "Amazon Bedrock Audio Processing", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/audio-processing.html"},
-                {"text": "AWS Blog: Unleashing the multimodal power of Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/unleashing-the-multimodal-power-of-amazon-bedrock-data-automation-to-transform-unstructured-data-into-actionable-insights/"},
-                {"text": "Speaker Diarization (Amazon Transcribe)", "url": "https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html"},
-                {"text": "Research: Advances in Speaker Diarization", "url": "https://arxiv.org/abs/2303.06876"}
+                {"text": "AWS Blog: Unleashing the multimodal power of Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/unleashing-the-multimodal-power-of-amazon-bedrock-data-automation-to-transform-unstructured-data-into-actionable-insights/"}
             ]
         },
         "audio_content_moderation": {
@@ -576,9 +572,7 @@ Organizations typically implement audio moderation using one of these patterns:
 5. **Confidence Thresholds**: Define different actions based on confidence levels
 """,
             "sources": [
-                {"text": "Amazon Bedrock Audio Processing - Content Moderation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/audio-processing.html"},
-                {"text": "Content Moderation Best Practices", "url": "https://aws.amazon.com/solutions/implementations/content-moderation/"},
-                {"text": "AWS Blog: Content moderation using artificial intelligence", "url": "https://aws.amazon.com/blogs/machine-learning/content-moderation-using-artificial-intelligence/"}
+                {"text": "Amazon Bedrock Audio Processing - Content Moderation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/audio-processing.html"}
             ]
         },
         "audio_summarization": {
@@ -619,8 +613,7 @@ Organizations leverage audio summarization through:
             "sources": [
                 {"text": "Amazon Bedrock Audio Processing", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/audio-processing.html"},
                 {"text": "AWS Blog: New Amazon Bedrock Data Automation capabilities streamline video and audio analysis", "url": "https://aws.amazon.com/blogs/machine-learning/new-amazon-bedrock-data-automation-capabilities-streamline-video-and-audio-analysis/"},
-                {"text": "AWS Blog: Get insights from multimodal content with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/aws/get-insights-from-multimodal-content-with-amazon-bedrock-data-automation-now-generally-available/"},
-                {"text": "Research: Advances in Abstractive Summarization", "url": "https://arxiv.org/abs/2210.11248"}
+                {"text": "AWS Blog: Get insights from multimodal content with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/aws/get-insights-from-multimodal-content-with-amazon-bedrock-data-automation-now-generally-available/"}
             ]
         },
         "project_architecture": {
@@ -648,8 +641,7 @@ In production environments, you would typically create different projects for di
 requirements, each with its own optimized configuration.
 """,
             "sources": [
-                {"text": "Working with Projects in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-projects.html"},
-                {"text": "AWS Blog: Enterprise Audio Processing with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-bedrock/"}
+                {"text": "Working with Projects in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-projects.html"}
             ]
         }
     }

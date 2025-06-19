@@ -225,8 +225,7 @@ BDA's classification capabilities provide actionable insights from visual conten
 """,
             "sources": [
                 {"text": "Working with Standard Output in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-standard-output.html"},
-                {"text": "Image Processing in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-image.html"},
-                {"text": "AWS Blog: Building with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/building-with-amazon-bedrock-data-automation/"}
+                {"text": "Image Processing in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-image.html"}
             ]
         },
         "text_in_image": {
@@ -252,11 +251,7 @@ Amazon Bedrock Data Automation helps bridge this gap by extracting text from ima
 
 For multilingual document processing, the AWS ecosystem offers complementary solutions like Amazon Translate, which can be used together with BDA for comprehensive multilingual workflows.
 """,
-            "sources": [
-                {"text": "Amazon Bedrock Data Automation Documentation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda.html"},
-                {"text": "Image Processing in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-image.html"},
-                {"text": "Generate Insights from Content - Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/bedrock/bda/"}
-            ]
+            "sources": []
         },
         "project_architecture": {
             "title": "Understanding BDA Projects for Image Analysis",
@@ -302,8 +297,7 @@ When you invoke Amazon Bedrock Data Automation for image analysis, a sophisticat
 - Response includes important image metadata (dimensions, color depth, encoding)
 """,
             "sources": [
-                {"text": "Invoking Amazon Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-invoke.html"},
-                {"text": "Image Processing in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-ouput-image.html"}
+                {"text": "Using Amazon Bedrock Data Automation API", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-using-api.html"}
                 ]
         },
         "custom_blueprints": {
@@ -355,13 +349,10 @@ Blueprints are particularly valuable when:
 
 ### AWS Documentation Resources
 
-- For blueprint schema documentation, see: https://docs.aws.amazon.com/bedrock/latest/userguide/bda-blueprints.html
-- For custom extraction patterns, see: https://aws.amazon.com/blogs/machine-learning/custom-extraction-with-amazon-bedrock-data-automation/
-- For blueprint best practices, see: https://docs.aws.amazon.com/bedrock/latest/userguide/bda-blueprints-best-practices.html
+- For blueprint schema documentation, see: https://docs.aws.amazon.com/bedrock/latest/userguide/bda-blueprint-info.html
 """,
             "sources": [
-                {"text": "Blueprint Management in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-blueprints.html"},
-                {"text": "AWS Blog: Custom Extraction with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/custom-extraction-with-amazon-bedrock-data-automation/"}
+                {"text": "Blueprint Management in Bedrock Data Automation", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/bda-blueprint-info.html"}
             ]
         },
         "business_applications": {
@@ -388,8 +379,6 @@ The structured data extracted from images by BDA enables various business applic
 - **Knowledge Bases**: Feed extracted image insights into Bedrock Knowledge Bases for multimodal RAG
 """,
             "sources": [
-                {"text": "AWS Blog: Multimodal processing with Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/multimodal-processing-with-bedrock-data-automation/"},
-                {"text": "AWS Blog: Visual intelligence applications with Amazon Bedrock", "url": "https://aws.amazon.com/blogs/machine-learning/visual-intelligence-applications-with-amazon-bedrock/"},
                 {"text": "AWS Blog: Building a multimodal RAG application with Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/machine-learning/building-a-multimodal-rag-based-application-using-amazon-bedrock-data-automation-and-amazon-bedrock-knowledge-bases/"},
                 {"text": "AWS Blog: Get insights from multimodal content with Amazon Bedrock Data Automation", "url": "https://aws.amazon.com/blogs/aws/get-insights-from-multimodal-content-with-amazon-bedrock-data-automation-now-generally-available/"}
             ]
